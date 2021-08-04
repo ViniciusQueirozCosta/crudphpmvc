@@ -22,6 +22,11 @@
                 <?php echo $data['usernameError']; ?>
             </span>
 
+            <input type="text" placeholder="Nome Completo *" name="fullname">
+            <span class="invalidFeedback">
+                <?php echo $data['fullnameError']; ?>
+            </span>
+
             <input type="email" placeholder="E-mail *" name="email">
             <span class="invalidFeedback">
                 <?php echo $data['emailError']; ?>

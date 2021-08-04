@@ -44,14 +44,20 @@
       call_user_func_array([$this->currentController, $this->currentMethod], $this->params);
     }
 
+    /*dictates used controller*/
     public function getUrl(){
       $url = $_SERVER["REQUEST_URI"];
 
-      /*retira o começo do link*/
+      /*removes appname from url string*/
       $url = preg_replace('/\/'.APPNAME.'\//', '', $url);
+      /*getting get variables out of the validation*/
+      if(strpos($url, "?")){
+        $url = substr($url, 0, strpos($url, "?"));
+      }
 
       $url = rtrim($url, '/');
       $url = filter_var($url, FILTER_SANITIZE_URL);
+
       $url = explode('/', $url);
       return $url;
     }

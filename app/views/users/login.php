@@ -9,23 +9,32 @@
 </div>
 
 <div class="container-login">
+    <?php
+        if(!empty($_GET['createSuccess'])){
+            ?>
+                <div class="successMessage">
+                    <h4> <?= $_GET['createSuccess']?></h4>
+                </div>
+            <?php
+        }
+    ?>
     <div class="wrapper-login">
         <h2>Entrar</h2>
 
         <form action="<?php echo URLROOT; ?>/users/login" method ="POST">
             <input type="text" placeholder="Nome de Usuário *" name="username">
             <span class="invalidFeedback">
-                <?php echo $data['usernameError']; ?>
+                <?= $data['usernameError'] ?>
             </span>
 
             <input type="password" placeholder="Senha *" name="password">
             <span class="invalidFeedback">
-                <?php echo $data['passwordError']; ?>
+                <?= $data['passwordError'] ?>
             </span>
 
             <button id="submit" type="submit" value="submit">Entrar</button>
 
-            <p class="options">Não criou uma conta ainda? <a href="<?php echo URLROOT; ?>/users/register">Criar conta.</a></p>
+            <p class="options">Não criou uma conta ainda? <a href="<?= URLROOT ?>/users/register">Criar conta.</a></p>
         </form>
     </div>
 </div>
