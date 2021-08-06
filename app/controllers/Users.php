@@ -90,9 +90,10 @@ class Users extends Controller {
 
                 //Register user from model function
                 if($this->userModel->register($data)){
-                    $data['createSuccess'] = 'Usuário cadastrado com sucesso!';
+                    $data['createSuccess'] = 'Usuário cadastrado com sucesso! Agora, faça o login com o seu usuário';
                     //Redirect to the login page
                     header('location: ' . URLROOT . '/users/login?createSuccess='.$data['createSuccess']);
+                    die();
                 } else {
                     die('Something went wrong.');
                 }

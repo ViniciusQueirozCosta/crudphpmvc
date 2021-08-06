@@ -7,7 +7,7 @@
             <a href="<?php echo URLROOT; ?>/why">Objetivo</a>
         </li>
         <li>
-            <a href="<?php echo URLROOT; ?>/posts">Blog</a>
+            <a href="<?php echo URLROOT; ?>/products">Products</a>
         </li>
         <li>
             <a href="<?php echo URLROOT; ?>/about">Sobre o desenvolvedor</a>
