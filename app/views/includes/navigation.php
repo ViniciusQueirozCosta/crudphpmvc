@@ -7,11 +7,11 @@
             <a href="<?php echo URLROOT; ?>/why">Objetivo</a>
         </li>
         <li>
-            <a href="<?php echo URLROOT; ?>/products">Products</a>
+            <a href="<?php echo URLROOT; ?>/products">Produtos</a>
         </li>
-        <li>
-            <a href="<?php echo URLROOT; ?>/about">Sobre o desenvolvedor</a>
-        </li>
+        <!-- <li>
+            <a href="<?php //echo URLROOT; ?>/about">Sobre o desenvolvedor</a>
+        </li> -->
         <?php 
             if(isset($_SESSION['fullname'])){
                 ?>

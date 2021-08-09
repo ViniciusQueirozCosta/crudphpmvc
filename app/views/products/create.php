@@ -9,13 +9,21 @@
 </div>
 
 <div class="container">
+    <?php
+        if(!empty($data['createSuccess'])){
+            ?>
+                <div class="successMessage">
+                    <h4> <?= $data['createSuccess']?></h4>
+                </div>
+            <?php
+        }
+    ?>
     <div class="wrapper-create-product">
         <h2>Cadastrar Novo Produto</h2>
-
             <form
                 id="create-product-form"
                 method="POST"
-                action="<?php echo URLROOT; ?>/products/create"
+                action="products/create"
                 >
             <input type="text" placeholder="Código do Produto *" name="code">
             <span class="invalidFeedback">

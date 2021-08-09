@@ -46,7 +46,7 @@ class Product {
         $this->db->execute();
 
         if($this->db->rowCount() > 0) {
-            return $this->db->fetchAll(PDO::FETCH_CLASS, 'Product');
+            return $this->db->resultSet();
         } else {
             return false;
         }
@@ -60,7 +60,7 @@ class Product {
         $this->db->execute();
 
         if($this->db->rowCount() > 0) {
-            return $this->db->fetch();
+            return $this->db->single();
         } else {
             return false;
         }
@@ -74,7 +74,7 @@ class Product {
         $this->db->execute();
 
         if($this->db->rowCount() > 0) {
-            return $this->db->fetch();
+            return $this->db->single();
         } else {
             return false;
         }
@@ -93,11 +93,11 @@ class Product {
         );
 
         //Bind values
-        $this->db->bind(':code', $product['code']);
-        $this->db->bind(':name', $product['name']);
-        $this->db->bind(':price', $product['price']);
-        $this->db->bind(':description', $product['description']);
-        $this->db->bind(':id', $product['id']);
+        $this->db->bind(':code', $product->code);
+        $this->db->bind(':name', $product->name);
+        $this->db->bind(':price', $product->price);
+        $this->db->bind(':description', $product->description);
+        $this->db->bind(':id', $product->id);
 
         $this->db->execute();
 
@@ -111,9 +111,9 @@ class Product {
 
     public function deleteProduct($product) {
         $this->db = new Database;
-        $id = $product->id;
+        $id = intval($product->id);
 
-        $this->db->query('DELETE '.APPNAME.'.products WHERE id = :id');
+        $this->db->query('DELETE FROM '.APPNAME.'.products WHERE id = :id');
         $this->db->bind(':id', $id);
         $this->db->execute();
 
